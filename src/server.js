@@ -10,7 +10,7 @@ require("./database");
 
 const app = express();
 app.use(helmet());
-app.use(cors({ optionsSuccessStatus: 200 }));
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

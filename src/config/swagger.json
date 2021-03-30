@@ -10,12 +10,12 @@
   },
   "servers": [
     {
-      "url": "https://api-cadastral-governanca.cfapps.eu10.hana.ondemand.com",
-      "description": "Servidor produção"
+      "url": "https://gov-treinamento.herokuapp.com",
+      "description": "Heroku"
     },
     {
       "url": "http://localhost:3000",
-      "description": "Servidor local"
+      "description": "Local"
     }
   ],
   "tags": [
@@ -35,24 +35,8 @@
   "paths": {
     "/parceiros": {
       "get": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Parceiros"
-        ],
-        "parameters": [
-          {
-            "name": "status",
-            "in": "query",
-            "description": "A = ativo ou I = inativo",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "summary": "Listar todos os parceiros",
         "responses": {
@@ -82,11 +66,6 @@
         }
       },
       "post": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Parceiros"
         ],
@@ -131,16 +110,6 @@
               }
             }
           },
-          "404": {
-            "description": "Tipo de parceiro não encontrado",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Erro"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Erro ao criar parceiro",
             "content": {
@@ -167,11 +136,6 @@
         }
       ],
       "get": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Parceiros"
         ],
@@ -220,11 +184,6 @@
         }
       },
       "put": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Parceiros"
         ],
@@ -292,11 +251,6 @@
         }
       },
       "delete": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Parceiros"
         ],
@@ -352,24 +306,8 @@
     },
     "/plataformas": {
       "get": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Plataformas"
-        ],
-        "parameters": [
-          {
-            "name": "status",
-            "in": "query",
-            "description": "A = ativo ou I = inativo",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "summary": "Listar todos as plataformas",
         "responses": {
@@ -399,11 +337,6 @@
         }
       },
       "post": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Plataformas"
         ],
@@ -474,11 +407,6 @@
         }
       ],
       "get": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Plataformas"
         ],
@@ -527,11 +455,6 @@
         }
       },
       "put": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Plataformas"
         ],
@@ -599,11 +522,6 @@
         }
       },
       "delete": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Plataformas"
         ],
@@ -659,24 +577,8 @@
     },
     "/servicos": {
       "get": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Serviços"
-        ],
-        "parameters": [
-          {
-            "name": "status",
-            "in": "query",
-            "description": "A = ativo ou I = inativo",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "summary": "Listar todos os serviços",
         "responses": {
@@ -706,11 +608,6 @@
         }
       },
       "post": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Serviços"
         ],
@@ -791,11 +688,6 @@
         }
       ],
       "get": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Serviços"
         ],
@@ -844,11 +736,6 @@
         }
       },
       "put": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Serviços"
         ],
@@ -916,11 +803,6 @@
         }
       },
       "delete": {
-        "security": [
-          {
-            "Bearer": []
-          }
-        ],
         "tags": [
           "Serviços"
         ],
@@ -985,73 +867,6 @@
           }
         }
       },
-      "ListarCertificado": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "certificado": {
-            "type": "string"
-          },
-          "data_expiracao": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          },
-          "solucao_servico_id": {
-            "type": "integer"
-          },
-          "servico_id": {
-            "type": "integer"
-          }
-        }
-      },
-      "NovoCertificado": {
-        "type": "object",
-        "properties": {
-          "certificado": {
-            "type": "string"
-          },
-          "data_expiracao": {
-            "type": "string"
-          },
-          "solucao_servico_id": {
-            "type": "integer"
-          }
-        },
-        "required": ["certificado", "data_expiracao", "solucao_servico_id"]
-      },     
-      "Tipo": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          }
-        }
-      },
-      "NovoTipo": {
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          }
-        },
-        "required": ["nome"]
-      },
       "ListarParceiro": {
         "type": "object",
         "properties": {
@@ -1061,10 +876,7 @@
           "nome": {
             "type": "string"
           },
-          "imagem": {
-            "type": "string"
-          },
-          "imagem_url": {
+          "tipo": {
             "type": "string"
           },
           "status": {
@@ -1075,17 +887,6 @@
           },
           "atualizado": {
             "type": "string"
-          },
-          "tipo_parceiro_id": {
-            "type": "integer"
-          },
-          "tipo_parceiro": {
-            "type": "object",
-            "properties": {
-              "nome": {
-                "type": "string"
-              }
-            }
           }
         }
       },
@@ -1095,22 +896,15 @@
           "nome": {
             "type": "string"
           },
-          "imagem": {
+          "tipo": {
             "type": "string"
           },
           "status": {
             "type": "string",
             "default": "A"
-          },
-          "tipo_parceiro_id": {
-            "type": "integer"
           }
         },
-        "required": [
-          "nome",
-          "imagem",
-          "tipo_parceiro_id"
-        ]
+        "required": [ "nome", "tipo" ]
       },
       "ListarPlataforma": {
         "type": "object",
@@ -1122,12 +916,6 @@
             "type": "string"
           },
           "status": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          },
-          "imagem_url": {
             "type": "string"
           },
           "criado": {
@@ -1144,7 +932,7 @@
           "nome": {
             "type": "string"
           },
-          "imagem": {
+          "tipo": {
             "type": "string"
           },
           "status": {
@@ -1152,7 +940,7 @@
             "default": "A"
           }
         },
-        "required": ["nome", "imagem"]
+        "required": ["nome", "tipo"]
       },
       "ListarServico": {
         "type": "object",
@@ -1160,13 +948,7 @@
           "id": {
             "type": "integer"
           },
-          "descricao": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          },
-          "imagem_url": {
+          "nome": {
             "type": "string"
           },
           "sizing": {
@@ -1196,19 +978,11 @@
           "atualizado": {
             "type": "string"
           },
-          "tipo_servico_id": {
-            "type": "integer"
+          "tipo": {
+            "type": "string"
           },
           "plataforma_id": {
             "type": "integer"
-          },
-          "tipo_servico": {
-            "type": "object",
-            "properties": {
-              "nome": {
-                "type": "string"
-              }
-            }
           },
           "plataforma": {
             "type": "object",
@@ -1223,10 +997,10 @@
       "NovoServico": {
         "type": "object",
         "properties": {
-          "descricao": {
+          "nome": {
             "type": "string"
           },
-          "imagem": {
+          "tipo": {
             "type": "string"
           },
           "sizing": {
@@ -1251,752 +1025,11 @@
             "type": "string",
             "default": "A"
           },
-          "tipo_servico_id": {
-            "type": "integer"
-          },
           "plataforma_id": {
             "type": "integer"
           }
         },
-        "required": [
-          "descricao",
-          "imagem",
-          "tipo_servico_id",
-          "platforma_id"
-        ]
-      },
-      "ListarProcesso": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          },
-          "imagem_url": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          },
-          "usuario_cadastro": {
-            "$ref": "#/components/schemas/Usuario"
-          },
-          "usuario_atualizacao": {
-            "$ref": "#/components/schemas/Usuario"
-          }
-        }
-      },
-      "NovoProcesso": {
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          },
-          "solucao_id": {
-            "type": "integer"
-          }
-        },
-        "required": [
-          "nome",
-          "imagem",
-          "solucao_id"
-        ]
-      },
-      "ListarIncidente": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "assunto": {
-            "type": "string"
-          },
-          "descricao": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          },
-          "imagem_url": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "resolucao": {
-            "type": "string"
-          },
-          "fechado": {
-            "type": "string"
-          },
-          "vencimento": {
-            "type": "string"
-          },
-          "categoria": {
-            "type": "object",
-            "properties": {
-              "nome": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "LogIncidente": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "incidente_id": {
-            "type": "integer"
-          },
-          "assunto": {
-            "type": "string"
-          },
-          "descricao": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          },
-          "imagem_url": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "resolucao": {
-            "type": "string"
-          },
-          "tipo_categoria_id": {
-            "type": "integer"
-          },
-          "solucao_id": {
-            "type": "integer"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          },
-          "fechado": {
-            "type": "string"
-          },
-          "vencimento": {
-            "type": "string"
-          },
-          "usuario_cadastro_id": {
-            "type": "integer"
-          },
-          "usuario_atualizacao_id": {
-            "type": "integer"
-          },
-          "usuario_fechamento_id": {
-            "type": "integer"
-          }
-        }
-      },
-      "NovoIncidente": {  
-        "type": "object",
-        "properties": {
-          "assunto": {
-            "type": "string"
-          },
-          "descricao": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          },
-          "tipo_categoria_id": {
-            "type": "integer"
-          },
-          "solucao_id": {
-            "type": "integer"
-          }
-        },
-        "required": [
-          "assunto",
-          "imagem",
-          "tipo_categoria_id",
-          "solucao_id"
-        ]
-      },
-      "SolucaoPag": {
-        "type": "object",
-        "properties": {
-          "total_items": {
-            "type": "integer"
-          },
-          "items_page": {
-            "type": "integer"
-          },
-          "total_pages": {
-            "type": "integer"
-          },
-          "current_page": {
-            "type": "integer"
-          },
-          "items_current_page": {
-            "type": "integer"
-          },
-          "solucoes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ListarSolucao"
-            }
-          }
-        }
-      },
-      "ListarSolucao": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          }
-        }
-      },
-      "ListarSolucao2": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "servicos_parceiros": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SSP"
-            }
-          }
-        }
-      },
-      "SSP": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "servico": {
-            "$ref": "#/components/schemas/SP"
-          },
-          "parceiro": {
-            "$ref": "#/components/schemas/ParceiroNome"
-          }
-        }
-      },
-      "SP": {
-        "type": "object",
-        "properties": {
-          "descricao": {
-            "type": "string"
-          },
-          "plataforma": {
-            "$ref": "#/components/schemas/PlataformaNome"
-          }
-        }
-      },
-      "PlataformaNome": {
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          }
-        }
-      },
-      "ParceiroNome": {
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          }
-        }
-      },
-      "ListarServicoPag": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "descricao": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          },
-          "imagem_url": {
-            "type": "string"
-          }
-        }
-      },
-      "Solucao": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          }
-        }
-      },
-      "NovaSolucao": {
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "nome"
-        ]
-      },
-      "EditarSolucao": {
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          }
-        }
-      },
-      "ListarSolucaoServicoParceiro": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "solucao_id": {
-            "type": "integer"
-          },
-          "servico_id": {
-            "type": "integer"
-          },
-          "parceiro_id": {
-            "type": "integer"
-          }
-        }
-      },
-      "SolucaoServicoParceiro": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "servico": {
-            "$ref": "#/components/schemas/ListarServicoPag"
-          }
-        }
-      },
-      "NovaSolucaoServicoParceiro": {
-        "type": "object",
-        "properties": {
-          "solucao_id": {
-            "type": "integer"
-          },
-          "servico_id": {
-            "type": "integer"
-          },
-          "parceiro_id": {
-            "type": "integer"
-          }
-        },
-        "required": [
-          "solucao_id",
-          "servico_id",
-          "parceiro_id"
-        ]
-      },
-      "ServicoParceiro": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "servico": {
-            "$ref": "#/components/schemas/ListarServico"
-          },
-          "parceiro": {
-            "$ref": "#/components/schemas/ListarParceiro"
-          }
-        }
-      },
-      "ListarCredencial": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "credencial": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          },
-          "tipo_credencial_id": {
-            "type": "integer"
-          },
-          "servico_id": {
-            "type": "integer"
-          },
-          "solucao_servico_id": {
-            "type": "integer"
-          },
-          "tipo_credencial": {
-            "type": "object",
-            "properties": {
-              "nome": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "Credencial": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "credencial": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          },
-          "tipo_credencial_id": {
-            "type": "integer"
-          },
-          "servico_id": {
-            "type": "integer"
-          },
-          "solucao_servico_id": {
-            "type": "integer"
-          },
-          "tipo_credencial": {
-            "$ref": "#/components/schemas/Tipo"
-          },
-          "servico": {
-            "$ref": "#/components/schemas/ListarServico"
-          },
-          "solucao_servico": {
-            "$ref": "#/components/schemas/ListarSolucaoServicoParceiro"
-          }
-        }
-      },
-      "NovaCredencial": {
-        "type": "object",
-        "properties": {
-          "credencial": {
-            "type": "string"
-          },
-          "tipo_credencial_id": {
-            "type": "integer"
-          },
-          "servico_id": {
-            "type": "integer"
-          },
-          "solucao_servico_id": {
-            "type": "integer"
-          }
-        },
-        "required": [
-          "credencial",
-          "tipo_credencial_id",
-          "servico_id",
-          "solucao_servico_id"
-        ]
-      },
-      "ListarUsuario": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "usuario": {
-            "type": "string"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "cargo": {
-            "type": "string"
-          },
-          "empresa": {
-            "type": "string"
-          },
-          "area": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          },
-          "imagem_url": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          },
-          "grupo": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          }
-        }
-      },
-      "NovoUsuario": {
-        "type": "object",
-        "properties": {
-          "usuario": {
-            "type": "string"
-          },
-          "senha": {
-            "type": "string"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "cargo": {
-            "type": "string"
-          },
-          "empresa": {
-            "type": "string"
-          },
-          "area": {
-            "type": "string"
-          },
-          "grupo": {
-            "type": "string"
-          },
-          "imagem": {
-            "type": "string"
-          }
-        },
-        "required": ["usuario", "senha", "nome", "cargo", "empresa", "area"]
-      },
-      "Login": {
-        "type": "object",
-        "properties": {
-          "usuario": {
-            "type": "string"
-          },
-          "senha": {
-            "type": "string"
-          }
-        },
-        "required": ["usuario", "senha"]
-      },
-      "ListarConfig": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "config": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          }
-        }
-      },
-      "NovaConfig": {
-        "type": "object",
-        "properties": {
-          "config": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          }
-        },
-        "required": ["config", "value"]
-      },
-      "ListarDocumento": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "documento": {
-            "type": "string"
-          },
-          "documento_url": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "tipo_documento": {
-            "type": "object",
-            "properties": {
-              "nome": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "NovoDocumento": {
-        "type": "object",
-        "properties": {
-          "documento": {
-            "type": "string"
-          },
-          "tipo_documento_id": {
-            "type": "integer"
-          },
-          "processo_id": {
-            "type": "integer"
-          }
-        },
-        "required": [
-          "documento",
-          "tipo_documento_id",
-          "processo_id"
-        ]
-      },
-      "ListarInterface": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "nome": {
-            "type": "string"
-          },
-          "descricao": {
-            "type": "string"
-          },
-          "sender": {
-            "type": "string"
-          },
-          "receiver": {
-            "type": "string"
-          },
-          "tipo": {
-            "type": "string"
-          },
-          "plataforma_http": {
-            "type": "string"
-          },
-          "modo_transferencia": {
-            "type": "string"
-          },
-          "url_servico": {
-            "type": "string"
-          },
-          "metodo": {
-            "type": "string"
-          },
-          "criado": {
-            "type": "string"
-          },
-          "atualizado": {
-            "type": "string"
-          },
-          "usuario_cadastro": {
-            "$ref": "#/components/schemas/Usuario"
-          },
-          "usuario_atualizacao": {
-            "$ref": "#/components/schemas/Usuario"
-          }
-        }
-      },
-      "NovaInterface": {
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          },
-          "descricao": {
-            "type": "string"
-          },
-          "sender": {
-            "type": "string"
-          },
-          "receiver": {
-            "type": "string"
-          },
-          "tipo": {
-            "type": "string"
-          },
-          "plataforma_http": {
-            "type": "string"
-          },
-          "modo_transferencia": {
-            "type": "string"
-          },
-          "url_servico": {
-            "type": "string"
-          },
-          "metodo": {
-            "type": "string"
-          },
-          "solucao_id": {
-            "type": "integer"
-          }
-        },
-        "required": [
-          "nome",
-          "solucao_id"
-        ]
-      },
-      "Usuario": {
-        "type": "object",
-        "properties": {
-          "nome": {
-            "type": "string"
-          },
-          "usuario": {
-            "type": "string"
-          }
-        }
+        "required": [ "nome", "tipo", "platforma_id" ]
       }
     }
   }
