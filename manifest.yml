@@ -1,0 +1,8 @@
+---
+applications:
+  - name: api-cadastral-governanca
+    memory: 512M
+    instances: 1
+    random-route: false
+    buildpacks:
+      - nodejs_buildpack

@@ -1,0 +1,38 @@
+{
+  "name": "governancaapicadastral",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "repository": "https://git.eu3.hana.ondemand.com/ymwk37j5ro/governancaapicadastral",
+  "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.710.0",
+    "axios": "^0.20.0",
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "nodemailer": "^6.4.11",
+    "pg": "^8.4.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0"
+  }
+}
