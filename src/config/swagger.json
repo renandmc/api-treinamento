@@ -918,6 +918,9 @@
           "status": {
             "type": "string"
           },
+          "tipo": {
+            "type": "string"
+          },
           "criado": {
             "type": "string"
           },
@@ -940,7 +943,7 @@
             "default": "A"
           }
         },
-        "required": ["nome", "tipo"]
+        "required": ["nome"]
       },
       "ListarServico": {
         "type": "object",

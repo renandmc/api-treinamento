@@ -17,6 +17,9 @@ module.exports = {
         allowNull: false,
         defaultValue: "A",
       },
+      tipo: {
+        type: Sequelize.STRING
+      },
       criado: {
         type: Sequelize.DATE,
         allowNull: false,
