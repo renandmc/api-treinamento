@@ -20,6 +20,10 @@ class Plataforma extends Model {
             },
           },
         },
+        tipo: {
+          type: DataTypes.STRING,
+          allowNull: true
+        },
         status: {
           type: DataTypes.STRING(1),
           allowNull: false,
